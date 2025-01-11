@@ -1,23 +1,9 @@
 import express from "express";
-import path from "path";
+
+import processImage from "../../utilities/processImage";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  console.log(req.query);
-
-
-  const filePath = path.join(__dirname, `../../assets/full/${req.query.filename}.jpg`);
-
-  // send image
-  res.sendFile(filePath, (err) => {
-    if (err) {
-      res.status(404).send("Image not found");
-    }
-  } );
-
-
-  //res.send("Images route");
-});
+router.get("/", processImage);
 
 export default router;
