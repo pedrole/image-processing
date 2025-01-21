@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "jasmine": "jasmine",
-    "build": "npx tsc",
+    "build": "tsc && node build.js",
     "test": "npm run build && npm run jasmine",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "prettier": "prettier  'src/**/*.{js,ts,json,md}' --write"
@@ -19,12 +19,15 @@
     "@types/jasmine": "^5.1.5",
     "@types/node": "^22.10.5",
     "@types/sharp": "^0.31.1",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "fs-extra": "^11.2.0",
     "globals": "^15.14.0",
     "nodemon": "^3.1.9",
     "prettier": "^2.5.1",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.0"
