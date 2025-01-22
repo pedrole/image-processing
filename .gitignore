@@ -14,6 +14,9 @@ build/
 .out/
 .tmp/
 
+# Asset thumbnails
+src/assets/thumb/
+
 # TypeScript specific
 *.tsbuildinfo
 

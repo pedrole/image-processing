@@ -33,11 +33,15 @@ const processImage = async (
       res.status(404).json({ error: `Invalid filename: "${filename}". File not found.` });
       return;
     }
+
+
+
     // validate width and height
-    if (!width || !height || isNaN(Number(width)) || isNaN(Number(height))) {
-      res.status(400).json({ error: "Width and height must be numbers." });
+    if (!width || !height || isNaN(Number(width)) || isNaN(Number(height)) || !Number.isInteger(Number(width)) || !Number.isInteger(Number(height)) || Number(width) <= 0 || Number(height) <= 0) {
+      res.status(400).json({ error: "Width and height must be positive integers." });
       return;
     }
+
 
     const cachedImage = path.join(cacheDir, `${filename}-${width}-${height}.jpg`);
     // check if image is already cached
